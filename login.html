@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login_ Signup_form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);        
+            font-family: "Mukta", sans-serif;
+            font-weight: 250;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-transform: none;
+        }
+        .main-div{
+            margin-top: 7%;
+            margin-left: 32%;
+            display: flex;
+        }
+        .signup-form,.login-form{
+            background-color: white;
+            width: 300px;
+            border-radius: 30px 0px 0px 30px;
+            box-shadow: 5px 5px grey;
+            height: 480px;
+        }
+        .signup-div,.login-div
+        {
+            background: #F2994A;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            width: 300px;
+            height: 480px;
+            border-radius: 0px 30px 30px 0px;
+            box-shadow: 5px 5px grey;
+        }
+        .form-container,.matter-div{
+            display: flex;
+        }
+        form{
+            padding: 20%;
+        }
+        .head{
+            position: relative;
+            left: 28%;  
+            text-shadow: 0px 1px black, 1px 0px black, -1px 0px black, 0px -1px black;
+            color: aqua; 
+        }
+        input{
+            margin-bottom: 10%;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px; /* Slightly rounded corners */
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: border-color 0.3s, box-shadow 0.3s;    
+            height: 30px;   
+            width: 100%;  
+        }
+        label,button{
+            font-size:small;
+        }
+        button{
+            margin-top: 40px;
+            margin-left: 6%;
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 20px; /* Slightly rounded corners */
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);   
+        }
+        .button-gradient {
+            background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);        }
+
+        .button-gradient:hover {
+            background: pink;
+        }
+        .matter{
+            padding: 30px;
+            position: relative;
+            top: 40px;
+            left: 10px;
+        }
+        button:hover{
+            background-color: pink;
+        }
+/* Arrangement */
+
+        .login-form {
+        transition: transform 1s ease-in-out;
+        z-index: 2;
+        }
+
+        .signup-form {
+            transition: transform 1s ease-in-out;
+            display: none;
+            z-index: 10;
+        }
+
+        .login-div {
+        transition: transform 1s ease-in-out;
+        display: none;
+        z-index: 10;
+
+        }
+        
+        .signup-div {
+            transition: transform 1s ease-in-out;
+        }
+
+        .show-signup .signup-form {
+            display: block;
+            transform: translateX(100%);
+            border-radius: 0px 30px 30px 0px;
+            box-shadow: 5px 5px grey
+        }
+
+        .show-signup .login-div {
+            transform: translateX(-100%);
+            border-radius: 30px 0px 0px 30px;
+            box-shadow: 5px 5px grey;
+            display: block;
+        }
+
+        .show-signup .signup-div {
+            display: none;
+        }
+
+        .show-signup .login-form {
+            display: none;
+        }
+
+
+        .show-login .login-form {
+            transform: translateX(0%);
+            border-radius: 30px 0px 0px 30px;
+            box-shadow: 5px 5px grey;
+            display: block;
+        }
+
+        .show-login .signup-div {
+            transform: translateX(0%); 
+            z-index: 20;
+            display: block;
+        }
+
+        .show-login .signup-form {
+            display: none;
+        }
+
+        .show-login .login-div {
+            display: none;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+    <div class="main-div">
+        <div class="form-container">
+            <div class="login-form">
+                <form method="get" action="/loginsubmit">
+                    <h1 class="head">Login</h1>
+                    <label for="email">Username </label>
+                    <input type="email" name="email" class="email" id="input" style="font-family: 'font awesome 5 free'; font-weight: 600;" placeholder="   &#xf0e0   E-Mail"><br>
+                    <label for="pass">Password  </label>
+                    <input type="password" name="pass" id="input" placeholder="   &#xf023   Password" style="font-family: 'Font Awesome 5 Free'; font-weight: 600;"><br>
+                    <button class="button-gradient" type="submit">LOGIN</button>
+                </form>
+            </div>
+            <div class="signup-form">
+                <form method="get" action="/signupsubmit" onsubmit="return validatePasswords()">                    <h1 class="head">Sign Up</h1>
+                    <label for="email">Username </label>
+                    <input type="email" name="email" class="email" placeholder="   &#xf007   E-Mail" style="font-family: 'Font Awesome 5 Free'; font-weight: 600;"><br>
+                    <label for="pass">Password  </label>
+                    <input type="password" name="pass" id="pass" placeholder="   &#xf023   Password" style="font-family: 'Font Awesome 5 Free'; font-weight: 600;"><br>
+                    <label for="pass">Conform Password  </label>
+                    <input type="password" name="conform_pass" id="conform_pass" placeholder="   &#xf023   Password" style="font-family: 'Font Awesome 5 Free'; font-weight: 600;"><br>
+                    <span id="error-message" class="error-message"></span><br>
+                    <button class="button-gradient" type="submit">SIGNUP</button>
+                </form>
+            </div>
+        </div>
+        <div class="matter-div">
+            <div class="signup-div">
+                <div class="matter">
+                    <h1>Welcome !</h1><br>
+                    <h3>Create an account to beecome our family member</h3>
+                    <button id="Sign">Sign Up</button>
+                </div>
+            </div>
+            <div class="login-div">
+                <div class="matter">
+                    <h1>Welcome back !</h1><br>
+                    <h3>To keep connected with us <br>please login</h3>
+                    <button id="login">Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+         function validatePasswords() {
+            var password = document.getElementById("pass").value;
+            var confirmPassword = document.getElementById("conform_pass").value;
+            var errorMessage = document.getElementById("error-message");
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Please check your password.";
+                return false; // Prevent form submission
+            }
+            errorMessage.textContent = ""; // Clear any previous error message
+            return true; // Allow form submission
+         }
+
+        // for allignment
+        const signButton = document.getElementById('Sign');
+        const mainDiv = document.querySelector('.main-div');
+        const loginButton = document.getElementById('login');
+
+        signButton.addEventListener('click', () => {
+          mainDiv.classList.toggle('show-signup');
+        });
+        loginButton.addEventListener('click', () => {
+          mainDiv.classList.toggle('show-login');
+        });
+
+      </script>
+</body>
+</html>
