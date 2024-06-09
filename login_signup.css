@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);        
+    font-family: "Mukta", sans-serif;
+    font-weight: 250;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.main-div{
+    margin-top: 7%;
+    margin-left: 32%;
+    display: flex;
+}
+.signup-form,.login-form{
+    background-color: white;
+    width: 300px;
+    border-radius: 30px 0px 0px 30px;
+    height: 480px;
+}
+.signup-div,.login-div
+{
+    background: #F2994A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 300px;
+    height: 480px;
+    border-radius: 0px 30px 30px 0px;
+}
+.form-container,.matter-div{
+    display: flex;
+}
+form{
+    padding: 20%;
+}
+.head{
+    position: relative;
+    left: 28%;  
+    text-shadow: 0px 1px black, 1px 0px black, -1px 0px black, 0px -1px black;
+    color: aqua; 
+}
+input{
+    margin-bottom: 20%;  
+    height: 30px;   
+    width: 100%;  
+    border: none;
+    padding-left: 10px;
+    outline: none;
+}
+.icon{
+    display: flex;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1); 
+    transition: border-color 0.3s, box-shadow 0.3s;  
+    height: 40px;
+    padding:5px;
+    margin-bottom: 10px;
+}
+
+
+button{
+    font-size:small;
+}
+
+button{
+    margin-top: 40px;
+    margin-left: 6%;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 20px; /* Slightly rounded corners */
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);   
+}
+.button-gradient {
+    background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);        }
+
+.button-gradient:hover {
+    background: pink;
+}
+.matter{
+    padding: 30px;
+    position: relative;
+    top: 40px;
+    left: 10px;
+}
+button:hover{
+    background-color: pink;
+}
+/* Arrangement */
+
+.login-form {
+transition: transform 1s ease-in-out;
+z-index: 2;
+}
+
+.signup-form {
+    transition: transform 1s ease-in-out;
+    display: none;
+    z-index: 10;
+}
+
+.login-div {
+transition: transform 1s ease-in-out;
+display: none;
+z-index: 10;
+
+}
+
+.signup-div {
+    transition: transform 1s ease-in-out;
+}
+
+.show-signup .signup-form {
+    display: block;
+    transform: translateX(100%);
+    border-radius: 0px 30px 30px 0px;
+}
+
+.show-signup .login-div {
+    transform: translateX(-100%);
+    border-radius: 30px 0px 0px 30px;
+    display: block;
+}
+
+.show-signup .signup-div {
+    display: none;
+}
+
+.show-signup .login-form {
+    display: none;
+}
+
+
+.show-login .login-form {
+    transform: translateX(0%);
+    border-radius: 30px 0px 0px 30px;
+    display: block;
+}
+
+.show-login .signup-div {
+    transform: translateX(0%); 
+    z-index: 20;
+    display: block;
+}
+
+.show-login .signup-form {
+    display: none;
+}
+
+.show-login .login-div {
+    display: none;
+}
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+.eye-icon{
+    width: 20px;
+    height: 25px;
+    margin-top: 2px;
+}
